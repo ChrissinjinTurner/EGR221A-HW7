@@ -38,26 +38,101 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
 
     @Override
     public V insert(K key, V value) {
-        throw new NotYetImplementedException();
+        if (key == null || value == null) {
+            throw new IllegalArgumentException();
+        }
+        //suppress warnings?
+        HashTrieNode current = (HashTrieNode) this.root;
+        for (A index : key) {
+            if (current.pointers.get(index) == null) {
+                current.pointers.put(index, new HashTrieNode());
+            }
+            current = current.pointers.get(index);
+        }
+        V val = current.value;
+        current.value = value;
+        if (val == null) {
+            this.size++;
+        }
+        return val;
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public V find(K key) {
-        throw new NotYetImplementedException();
+        if (key == null) {
+            throw new IllegalArgumentException();
+        }
+        //unchecked surpress warning?
+        HashTrieNode current = (HashTrieNode) this.root;
+        for (A index : key) {
+            current = current.pointers.get(index);
+            if (current == null) {
+                return null;
+            }
+        }
+        return current.value;
     }
 
     @Override
     public boolean findPrefix(K key) {
-        throw new NotYetImplementedException();
+        if (key == null) {
+            throw new IllegalArgumentException();
+        }
+        //surpress warning?
+        HashTrieNode current = (HashTrieNode) this.root;
+        for (A index : key) {
+            current = current.pointers.get(index);
+            if (current == null) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
     public void delete(K key) {
-        throw new NotYetImplementedException();
+        if (key == null) {
+            throw new IllegalArgumentException();
+        }
+        boolean accepted = true;
+        HashTrieNode current = (HashTrieNode) this.root;
+        if (key.isEmpty()) {
+            if (current.value != null) {
+                current.value = null;
+                size--;
+            }
+        } else {
+            HashTrieNode val = (HashTrieNode) this.root;
+            Iterator<A> counter = key.iterator();
+            A nextNode = (A) counter.next();
+            for (A index : key) {
+                if (current.pointers.get(index) != null) {
+                    if (current.pointers.size() >= 2 || current.value != null) {
+                        val = current;
+                        nextNode = index;
+                    }
+                    current = current.pointers.get(index);
+                } else {
+                    accepted = false;
+                    break;
+                }
+            }
+            if (accepted) {
+                val.pointers.remove(nextNode);
+                size--;
+            } else {
+                if (current.value != null) {
+                    current.value = null;
+                    size--;
+                }
+            }
+        }
+
     }
 
     @Override
     public void clear() {
-        throw new NotYetImplementedException();
+        this.root = new HashTrieNode();
     }
 }

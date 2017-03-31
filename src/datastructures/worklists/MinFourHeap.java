@@ -17,6 +17,7 @@ public class MinFourHeap<E extends Comparable<E>> extends PriorityWorkList<E> {
     private static final int DEFAULT_CAP = 256;
     private static final int HEAP_SIZE = 4;
 
+    @SuppressWarnings("unchecked")
     public MinFourHeap() {
         data = (E[]) new Comparable[DEFAULT_CAP];
         capacity = DEFAULT_CAP;
@@ -48,6 +49,8 @@ public class MinFourHeap<E extends Comparable<E>> extends PriorityWorkList<E> {
             parentIndex = (int) Math.floor((childIndex - 1) / 4);
         }
     }
+
+    @SuppressWarnings("unchecked")
     private void addHelper() {
         int newCapacity = capacity * 2;
         E[] newArray = (E[]) new Comparable[newCapacity];
@@ -60,8 +63,8 @@ public class MinFourHeap<E extends Comparable<E>> extends PriorityWorkList<E> {
 
     @Override
     public E peek(){
-    verifyNext();
-    	return data[0];
+        verifyNext();
+        return data[0];
     }
 
     private void verifyNext() {
@@ -70,41 +73,41 @@ public class MinFourHeap<E extends Comparable<E>> extends PriorityWorkList<E> {
         }
     }
 
-        @Override
-        public E next() {
-            verifyNext();
-            E removed = data[0];
-            data[0] = data[size - 1];
-            size--;
-            int parentIndex = 0;
+    @Override
+    public E next() {
+        verifyNext();
+        E removed = data[0];
+        data[0] = data[size - 1];
+        size--;
+        int parentIndex = 0;
 
-            int[] children = new int[4];
+        int[] children = new int[4];
+        for (int i = 0; i < 4; i++) {
+            children[i] = 4 * parentIndex + i + 1;
+        }
+
+        int minIndex = children[0];
+        while (children[0] < size) {
+            int test = size() - children[0];
+            for (int i = 0; i < Math.min(HEAP_SIZE, size() - children[0]); i++) {
+                if (data[minIndex].compareTo(data[children[i]]) > 0) {
+                    minIndex = children[i];
+                }
+            }
+            if (data[parentIndex].compareTo(data[minIndex]) <= 0) {
+                break;
+            }
+            E temp = data[parentIndex];
+            data[parentIndex] = data[minIndex];
+            data[minIndex] = temp;
+            parentIndex = minIndex;
             for (int i = 0; i < 4; i++) {
                 children[i] = 4 * parentIndex + i + 1;
             }
-
-            int minIndex = children[0];
-            while (children[0] < size) {
-                int test = size() - children[0];
-                for (int i = 0; i < Math.min(HEAP_SIZE, size() - children[0]); i++) {
-                    if (data[minIndex].compareTo(data[children[i]]) > 0) {
-                        minIndex = children[i];
-                    }
-                }
-                if (data[parentIndex].compareTo(data[minIndex]) <= 0) {
-                    break;
-                }
-                E temp = data[parentIndex];
-                data[parentIndex] = data[minIndex];
-                data[minIndex] = temp;
-                parentIndex = minIndex;
-                for (int i = 0; i < 4; i++) {
-                    children[i] = 4 * parentIndex + i + 1;
-                }
-                minIndex = children[0];
-            }
-            return removed;
+            minIndex = children[0];
         }
+        return removed;
+    }
 
 
     @Override

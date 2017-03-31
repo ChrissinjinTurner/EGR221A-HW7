@@ -77,6 +77,7 @@ public class CircularArrayFIFOQueue<E> extends FixedSizeFIFOWorkList<E> {
     }
     
     @Override
+    @SuppressWarnings("unchecked")
     public void clear() {
         @SuppressWarnings("Not Checked")
         E[] newArray = (E[])new Comparable[super.capacity()];

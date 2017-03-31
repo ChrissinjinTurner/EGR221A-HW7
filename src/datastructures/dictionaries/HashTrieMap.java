@@ -37,11 +37,11 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public V insert(K key, V value) {
         if (key == null || value == null) {
             throw new IllegalArgumentException();
         }
-        //suppress warnings?
         HashTrieNode current = (HashTrieNode) this.root;
         for (A index : key) {
             if (current.pointers.get(index) == null) {
@@ -63,7 +63,6 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
         if (key == null) {
             throw new IllegalArgumentException();
         }
-        //unchecked surpress warning?
         HashTrieNode current = (HashTrieNode) this.root;
         for (A index : key) {
             current = current.pointers.get(index);
@@ -75,11 +74,11 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public boolean findPrefix(K key) {
         if (key == null) {
             throw new IllegalArgumentException();
         }
-        //surpress warning?
         HashTrieNode current = (HashTrieNode) this.root;
         for (A index : key) {
             current = current.pointers.get(index);
@@ -91,6 +90,7 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void delete(K key) {
         if (key == null) {
             throw new IllegalArgumentException();

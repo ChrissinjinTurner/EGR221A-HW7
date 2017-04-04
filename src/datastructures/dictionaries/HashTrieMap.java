@@ -15,11 +15,21 @@ import egr221a.interfaces.trie.TrieMap;
  * for method specifications.
  */
 public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> extends TrieMap<A, K, V> {
+    /**
+     * Our beautiful node declaration
+     */
     public class HashTrieNode extends TrieNode<Map<A, HashTrieNode>, HashTrieNode> {
+        /**
+         * default
+         */
         public HashTrieNode() {
             this(null);
         }
 
+        /**
+         * given a value
+         * @param value
+         */
         public HashTrieNode(V value) {
             this.pointers = new HashMap<A, HashTrieNode>();
             this.value = value;
@@ -31,11 +41,23 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
         }
     }
 
+    /**
+     * default constructor
+     * @param KClass
+     */
     public HashTrieMap(Class<K> KClass) {
         super(KClass);
         this.root = new HashTrieNode();
     }
 
+    /**
+     * Inserts a new value into the map given its key as well
+     * @param key
+     *            key with which the specified value is to be associated
+     * @param value
+     *            value to be associated with the specified key
+     * @return
+     */
     @Override
     @SuppressWarnings("unchecked")
     public V insert(K key, V value) {
@@ -57,6 +79,12 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
         return val;
     }
 
+    /**
+     * Returns the value given its key
+     * @param key
+     *            the key whose associated value is to be returned
+     * @return
+     */
     @Override
     @SuppressWarnings("unchecked")
     public V find(K key) {
@@ -73,6 +101,11 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
         return current.value;
     }
 
+    /**
+     * Checks to see if node is empty
+     * @param key
+     * @return
+     */
     @Override
     @SuppressWarnings("unchecked")
     public boolean findPrefix(K key) {
@@ -89,6 +122,11 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
         return true;
     }
 
+    /**
+     * Removes the value given the key
+     * @param key
+     *            key whose mapping is to be removed from the map
+     */
     @Override
     @SuppressWarnings("unchecked")
     public void delete(K key) {
@@ -131,6 +169,9 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
 
     }
 
+    /**
+     * Resets its back to its original state
+     */
     @Override
     public void clear() {
         this.root = new HashTrieNode();

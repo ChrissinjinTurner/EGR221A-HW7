@@ -17,6 +17,9 @@ public class MinFourHeap<E extends Comparable<E>> extends PriorityWorkList<E> {
     private static final int DEFAULT_CAP = 256;
     private static final int HEAP_SIZE = 4;
 
+    /**
+     * Default constructor
+     */
     @SuppressWarnings("unchecked")
     public MinFourHeap() {
         data = (E[]) new Comparable[DEFAULT_CAP];
@@ -24,11 +27,19 @@ public class MinFourHeap<E extends Comparable<E>> extends PriorityWorkList<E> {
         ;
     }
 
+    /**
+     * Checks to make sure that there are still elements in the WorkList
+     * @return
+     */
     @Override
     public boolean hasWork() {
         return size != 0;
     }
 
+    /**
+     * Adds work to the WorkList
+     * @param work
+     */
     @Override
     public void add(E work) {
         if (size + 1 == capacity) {
@@ -50,6 +61,9 @@ public class MinFourHeap<E extends Comparable<E>> extends PriorityWorkList<E> {
         }
     }
 
+    /**
+     * Helper method to the add method
+     */
     @SuppressWarnings("unchecked")
     private void addHelper() {
         int newCapacity = capacity * 2;
@@ -61,18 +75,29 @@ public class MinFourHeap<E extends Comparable<E>> extends PriorityWorkList<E> {
         capacity = newCapacity;
     }
 
+    /**
+     * Returns the next element in the WorkList
+     * @return
+     */
     @Override
     public E peek(){
         verifyNext();
         return data[0];
     }
 
+    /**
+     * Checks to make sure that there is a next element
+     */
     private void verifyNext() {
         if (!hasWork()) {
             throw new NoSuchElementException();
         }
     }
 
+    /**
+     * Returns and removes the next element in the WorkList
+     * @return
+     */
     @Override
     public E next() {
         verifyNext();
@@ -109,12 +134,18 @@ public class MinFourHeap<E extends Comparable<E>> extends PriorityWorkList<E> {
         return removed;
     }
 
-
+    /**
+     * Return the number of elements in the Worklist
+     * @return
+     */
     @Override
     public int size() {
         return size;
     }
 
+    /**
+     * Clears the WorkList resetting back to its original size
+     */
     @Override
     public void clear() {
         size = 0;

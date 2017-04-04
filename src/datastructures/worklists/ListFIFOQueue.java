@@ -19,6 +19,10 @@ public class ListFIFOQueue<E> extends FIFOWorkList<E> {
         this.size = 0;
     }
 
+    /**
+     * Adds a new data object to the list
+     * @param data
+     */
     @Override
     public void add(E data) {
         if (front == null) {
@@ -31,6 +35,10 @@ public class ListFIFOQueue<E> extends FIFOWorkList<E> {
         size++;
     }
 
+    /**
+     * Returns the next element in the list
+     * @return
+     */
     @Override
     public E peek() {
         if (!hasWork()) {
@@ -39,6 +47,10 @@ public class ListFIFOQueue<E> extends FIFOWorkList<E> {
         return front.data;
     }
 
+    /**
+     * Returns and then removes the next element
+     * @return
+     */
     @Override
     public E next() {
         if (!hasWork()) {
@@ -50,11 +62,18 @@ public class ListFIFOQueue<E> extends FIFOWorkList<E> {
         return temp;
     }
 
+    /**
+     * Returns the number of elements in the list
+     * @return
+     */
     @Override
     public int size() {
         return size;
     }
 
+    /**
+     * Removes all elements from the list returning it to its original state
+     */
     @Override
     public void clear() {
         this.front = null;
@@ -62,6 +81,10 @@ public class ListFIFOQueue<E> extends FIFOWorkList<E> {
         this.size = 0;
     }
 
+    /**
+     * Declaration of our LinkedNode
+     * @param <E>
+     */
     private static class LinkedNode<E> {
         public E data;
         public LinkedNode next;

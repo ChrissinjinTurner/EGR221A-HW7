@@ -18,6 +18,10 @@ public class ArrayStack<E> extends LIFOWorkList<E> {
         clear();
     }
 
+    /**
+     * Adds new work to the WorkList
+     * @param work
+     */
     @Override
     public void add(E work) {
         if (index >= array.length) {
@@ -32,6 +36,9 @@ public class ArrayStack<E> extends LIFOWorkList<E> {
         index++;
     }
 
+    /**
+     * returns the next element in the WorkList
+     */
     @Override
     public E peek() {
         if (!hasWork()) {
@@ -40,6 +47,10 @@ public class ArrayStack<E> extends LIFOWorkList<E> {
         return array[index - 1];
     }
 
+    /**
+     * Returns and then removes the next element in the WorkList
+     * @return
+     */
     @Override
     public E next() {
         if (!hasWork()) {
@@ -51,11 +62,18 @@ public class ArrayStack<E> extends LIFOWorkList<E> {
         return temp;
     }
 
+    /**
+     * Returns the number of elements in the WorkList
+     * @return
+     */
     @Override
     public int size() {
         return index;
     }
 
+    /**
+     * resets the WorkList to an empty one
+     */
     @Override
     public void clear() {
         @SuppressWarnings("unchecked")

@@ -66,7 +66,13 @@ change. Even on this file it provided a large change.
     and some other input of your choice.  We expect you to draw meaningful conclusions and possibly have graphs that convince us of your conclusions.
     This single question is worth almost as much as the implementation of `ArrayStack`; so, please take it seriously.  If you spend less than 20 minutes
     on this question, there is no conceivable way that you answered this question in the way we were intending.<pre>
-**TODO**: Answer this question
+In our original test, we ran the ZIP algorithm against a 12mb .txt file.  The compression took 28 minutes and compressed the size of the file to 7.3mb.  
+This is a compression ratio of 1.64, or a compression to 60.83% of original size. According to HowToGeek, the compression of Windows 8.1 exhibits a similar 
+ratio of compression percentage.  863 MB in size of music, graphics, executable files, and various different types of documents in Zip (Windows 8.1): 746 MB 
+(86.4% of the original size). Also, 654 MB of data: Zip (Windows 8.1): 316 MB (48.3% of the original size).  To test even further, we tried zipping a html file.  
+The html's original size was: 327kb. The compression size was 136kb, giving a ratio 2.4 and percentage of 41%. Although, this may not be entirely accurate as the sizes of the files were extremely different. We also
+checked a pdf file. Its original size was , its compressed size was , giving a ration of  and a percentage of. Based on these extensive tests, we conclude that our algorithm 
+has an easier time and better compression zipping files of .html type.
 </pre><br>
 
 #### Above and Beyond ####

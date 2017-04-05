@@ -70,8 +70,9 @@ In our original test, we ran the ZIP algorithm against a 12mb .txt file.  The co
 This is a compression ratio of 1.64, or a compression to 60.83% of original size. According to HowToGeek, the compression of Windows 8.1 exhibits a similar 
 ratio of compression percentage.  863 MB in size of music, graphics, executable files, and various different types of documents in Zip (Windows 8.1): 746 MB 
 (86.4% of the original size). Also, 654 MB of data: Zip (Windows 8.1): 316 MB (48.3% of the original size).  To test even further, we tried zipping a html file.  
-The html's original size was: 327kb. The compression size was 136kb, giving a ratio 2.4 and percentage of 41%.  Based on these extensive tests, we conclude that our algorithm 
-has an easier time and better compression zipping files of .html type. Although, this may not be entirely accurate as the sizes of the files were extremely different. 
+The html's original size was: 327kb. The compression size was 136kb, giving a ratio 2.4 and percentage of 41%. Although, this may not be entirely accurate as the sizes of the files were extremely different. We also
+checked a pdf file. Its original size was 851kb, its compressed size was 831kb, giving a ration of 1.02 and a percentage of 97%. This doesnt seem accurate, but i'm not sure where an error was entered in.
+Based on these extensive tests, we conclude that our algorithm has an easier time and better compression zipping files of .html type.
 </pre><br>
 
 #### Above and Beyond ####

@@ -56,7 +56,8 @@ words one letter at a time the trie is a much better choice. It accounts for all
     standard zip utility on your machine (Finder on OS X, zip on Linux, WinZip or the like on Windows) to UNZIP your file.  Check that you got back
     the original.  Congratulations!  Your program correctly implements the same compression algorithm you have been using for years!  Discuss in a
     sentence or two how good the compression was and why you think it was good or bad.<pre>
-**TODO**: Answer this question
+We had a compression rate of about 40%, we were able to reduce the 12.2mb file to a size of 7.3mb. On much much larger files this is a sifnificant 
+change. Even on this file it provided a large change. 
 </pre><br>
 -   Now that you've played with Zip, we want you to do an **experiment** with Zip.  Notice that there is a constant called `BUFFER_LENGTH` in `Zip.java`.
     Higher values of this constant makes the compression algorithm that Zip uses use more memory and consequently more time.  The "compression ratio"

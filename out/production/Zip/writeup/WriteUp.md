@@ -4,7 +4,7 @@
 #### How Was Your Partnership? ####
 -   Did both partners do an equal amount of work?  If not, why not?
     What happened?<pre>
-**TODO**: Answer this question
+Yes, we both worked the same amount on this assignment. 
 </pre><br>
 
 -----
@@ -12,11 +12,11 @@
 #### Project Enjoyment ####
 -   What was your favorite part of the project?  What was your least
     favorite part of the project?<pre>
-**TODO**: Answer this question
+Favorite part was working together on a project, least favorite was working with the tries. 
 </pre><br>
 
 -   Did you enjoy the project?<pre>
-**TODO**: Answer this question
+It wasnt terrible, could have been better though. 
 </pre><br>
 
 -----
@@ -24,17 +24,31 @@
 #### WorkLists, Tries, and Zip ####
 -   The ADT for a WorkList explicitly forbids access to the middle elements.  However, the FixedSizeFIFOWorkList has a peek(i) method
     which allows you to do exactly that.  Why is this an acceptable addition to the WorkList ADT in this particular case but not in general?<pre>
-**TODO**: Answer this question
+This peek method allows an element to be replaced at the value of (i). This is acceptable in our case because the WorList is FIFO, which creates a well
+defined order within the data structure. In any other case, providing users access to the middle of the structure may dissolve order within the structure.
 </pre><br>
 -   As we've described it, a `TrieMap` seems like a general-purpose replacement for `HashMap` or `TreeMap`.  Why might we still want to use one
     of these other data structures instead?<pre>
-**TODO**: Answer this question
+Hashmaps and treemaps are more generic working on any object, where as triemaps only work on sequenced objects. 
 </pre><br>
 -   One of the applications of Tries is in solving Word Searches.  A "word search" is an n x m rectangle of letters.  The goal is to find all
     of the possible words (horizontal, vertical, diagonal, etc.).  In Boggle, a similar game, any consecutive chain of letters (even repetitions)
     are allowed.  Explain (in very high-level psuedo-code) how you might solve this problem with a TrieSet or a TrieMap.  Make sure to detail
     how a similar solution that uses a HashSet/HashMap instead would be different and why using a Trie might make the solution better.<pre>
-**TODO**: Answer this question
+public trie findWord(String s) {
+    this word;
+    for (int i = 0; i < s.length; i++) {
+        getChar at index;
+        get its children;
+        if (child is null) {
+            return null; theres no child (word)
+        }
+        current node = child;
+    }
+    return current node;
+}
+Trie are better due to their nature to only store single letters instead of full elements, like a map or set would do. In this case, since you are creating
+words one letter at a time the trie is a much better choice. It accounts for all possibilities when testing words. 
 </pre><br>
 -   One of the classes in the egr221a.main package is called Zip.  This class uses your PriorityQueue to do Huffman coding, your FIFOQueue as a buffer,
     your stack to calculate the keyset of a trie (using recursive backtracking), and your SuffixTrie to do LZ77Compression.  Find some text file
@@ -57,5 +71,5 @@
 #### Above and Beyond ####
 -   Did you do any Above and Beyond?  Describe exactly what you
     implemented.<pre>
-**TODO**: Answer this question
+No
 </pre><br>

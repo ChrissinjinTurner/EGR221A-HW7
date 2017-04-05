@@ -1,5 +1,6 @@
 package datastructures.worklists;
 
+
 import egr221a.exceptions.NotYetImplementedException;
 import egr221a.interfaces.worklists.FixedSizeFIFOWorkList;
 
@@ -123,7 +124,7 @@ public class CircularArrayFIFOQueue<E> extends FixedSizeFIFOWorkList<E> {
 
     @Override
     public int compareTo(FixedSizeFIFOWorkList<E> other) {
-        return -1;
+        throw new NotYetImplementedException();
     }
 
     @Override
@@ -138,27 +139,29 @@ public class CircularArrayFIFOQueue<E> extends FixedSizeFIFOWorkList<E> {
         else {
             FixedSizeFIFOWorkList<E> other = (FixedSizeFIFOWorkList<E>) obj;
 
-            if (size() != other.size()) {
-                return false;
-            }
-            for (int i = 0; i < size(); i++) {
-                if(!peek(i).equals(other.peek(i))) {
-                    return false;
-                }
-            }
+//            if (size() != other.size()) {
+//                return false;
+//            }
+//            for (int i = 0; i < size(); i++) {
+//                if(!peek(i).equals(other.peek(i))) {
+//                    return false;
+//                }
+//            }
+            throw new NotYetImplementedException();
         }
-        return true;
+        //return true;
     }
 
 
     @Override
     public int hashCode() {
-        int code = 37;
-        int i = 0;
-        for (E count : this) {
-            code += count.hashCode() * Math.pow(31, i);
-            i++;
-        }
-        return code;
+//        int code = 37;
+//        int i = 0;
+//        for (E count : this) {
+//            code += count.hashCode() * Math.pow(31, i);
+//            i++;
+//        }
+//        return code;
+        throw new NotYetImplementedException();
     }
 }

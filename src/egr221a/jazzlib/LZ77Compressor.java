@@ -1,7 +1,7 @@
 package egr221a.jazzlib;
 
-import egr221a.interfaces.worklists.FIFOWorkList;
 import datastructures.extracredit.SuffixTrie;
+import egr221a.interfaces.worklists.FIFOWorkList;
 
 
 /**
